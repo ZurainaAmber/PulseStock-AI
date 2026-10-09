@@ -1,274 +1,268 @@
 {
-  "scenario_metadata": {
-    "challenge": "Cypher 2026 Challenge 6 - PulseStock AI",
-    "scenario_name": "Store 7 Cold-Drink Demand Surge & Stockout Mitigation",
-    "store_id": "STORE_007",
-    "store_name": "Store 7 - Koramangala Tech Park",
-    "target_sku_id": "SKU_COLD_DRINK_750ML",
-    "target_sku_name": "Sparkling Cola 750ml",
-    "generated_at": "2026-10-09T18:00:00Z"
+  "system_status": {
+    "engine_version": "1.0.0",
+    "mode": "ACTIVE",
+    "scope_state": "LOCAL_AND_SURGE_AWARE",
+    "evaluated_stores_count": 10,
+    "evaluated_skus_count": 120,
+    "active_alerts_count": 4,
+    "last_run_timestamp": "2026-10-10T17:00:00Z"
   },
-  "stockout_alert": {
-    "alert_id": "ALT_20261009_007_01",
-    "store_id": "STORE_007",
-    "sku_id": "SKU_COLD_DRINK_750ML",
-    "severity": "CRITICAL",
-    "current_total_stock_units": 55,
-    "shelf_stock_units": 35,
-    "backroom_stock_units": 20,
-    "shelf_capacity_units": 40,
-    "safety_stock_threshold_units": 25,
-    "reorder_point_units": 50,
-    "projected_hourly_demand_units": 65,
-    "stockout_probability": 0.96,
-    "minutes_until_stockout": 42,
-    "estimated_stockout_timestamp": "2026-10-09T18:42:00Z",
-    "primary_driver": "CRICKET_AND_RAIN_COMBO",
-    "shelf_replenishment_alert": true,
-    "status": "PENDING"
-  },
-  "external_events_context": {
-    "cricket_match": {
-      "is_active": true,
-      "match_id": "MAT_IND_PAK_2026",
-      "title": "India vs Pakistan T20 World Cup Super 8",
-      "stadium_name": "Chinnaswamy Stadium",
-      "distance_km": 1.4,
-      "status": "IN_PROGRESS",
-      "current_match_phase": "Innings Break",
-      "category_uplift_multiplier": 2.5
-    },
-    "weather": {
-      "is_active": true,
-      "condition": "HEAVY_RAIN",
-      "precipitation_mm_per_hr": 22.5,
-      "delivery_speed_reduction_pct": 40.0,
-      "category_uplift_multiplier": 1.35
-    },
-    "festival": {
-      "is_active": true,
-      "festival_name": "Diwali Pre-Shopping Week",
-      "category_uplift_multiplier": 1.25
-    }
-  },
-  "hourly_demand_forecast": [
+  "alerts": [
     {
-      "timestamp": "2026-10-09T18:00:00Z",
-      "hour_label": "18:00 - 19:00",
-      "baseline_demand_units": 15,
-      "cricket_uplift_units": 32,
-      "rain_uplift_units": 12,
-      "festival_uplift_units": 6,
-      "final_projected_demand_units": 65,
-      "confidence_lower_bound": 58,
-      "confidence_upper_bound": 72
-    },
-    {
-      "timestamp": "2026-10-09T19:00:00Z",
-      "hour_label": "19:00 - 20:00",
-      "baseline_demand_units": 18,
-      "cricket_uplift_units": 45,
-      "rain_uplift_units": 10,
-      "festival_uplift_units": 7,
-      "final_projected_demand_units": 80,
-      "confidence_lower_bound": 70,
-      "confidence_upper_bound": 90
-    },
-    {
-      "timestamp": "2026-10-09T20:00:00Z",
-      "hour_label": "20:00 - 21:00",
-      "baseline_demand_units": 16,
-      "cricket_uplift_units": 30,
-      "rain_uplift_units": 8,
-      "festival_uplift_units": 6,
-      "final_projected_demand_units": 60,
-      "confidence_lower_bound": 52,
-      "confidence_upper_bound": 68
-    },
-    {
-      "timestamp": "2026-10-09T21:00:00Z",
-      "hour_label": "21:00 - 22:00",
-      "baseline_demand_units": 12,
-      "cricket_uplift_units": 10,
-      "rain_uplift_units": 5,
-      "festival_uplift_units": 3,
-      "final_projected_demand_units": 30,
-      "confidence_lower_bound": 25,
-      "confidence_upper_bound": 35
-    }
-  ],
-  "logistics_status": {
-    "warehouse": {
-      "warehouse_id": "WH_CENTRAL_01",
-      "warehouse_name": "Central Distribution Hub West",
-      "available_stock_units": 2400,
-      "expedited_truck_available": true,
-      "expedited_truck_id": "TRK_EXPRESS_109",
-      "expedited_eta_minutes": 35,
-      "expedited_cost_inr": 350.0,
-      "scheduled_truck_id": "TRK_STANDARD_404",
-      "scheduled_truck_eta_minutes": 120
-    },
-    "donor_stores": [
-      {
-        "donor_store_id": "STORE_003",
-        "donor_store_name": "Store 3 - Indiranagar",
-        "distance_km": 3.4,
-        "current_stock_units": 210,
-        "surplus_units": 140,
-        "transfer_eta_minutes": 28,
-        "estimated_transfer_cost_inr": 150.0,
-        "feasibility_score": 0.92
-      }
-    ],
-    "rider_fleet": {
-      "active_riders": 3,
-      "required_riders": 9,
-      "rider_shortage_count": 6,
-      "shortage_severity": "HIGH",
-      "rider_surge_multiplier": 1.35,
-      "transfer_rider_assigned_id": "RIDER_DEV_88"
-    }
-  },
-  "evaluated_recommendations": [
-    {
-      "recommendation_id": "REC_007_TRF_01",
-      "option_type": "TRANSFER",
-      "rank": 1,
-      "title": "Inter-Store Transfer from Store 3 (Indiranagar)",
-      "summary": "Dispatch express rider to transfer 50 units from Store 3 surplus stock.",
-      "confidence_score": 0.94,
-      "stockout_prevented": true,
-      "action_parameters": {
-        "source_type": "STORE",
-        "source_id": "STORE_003",
-        "transfer_quantity_units": 50,
-        "eta_minutes": 28,
-        "estimated_arrival_timestamp": "2026-10-09T18:28:00Z"
+      "alert_id": "ALT-20261010-007-COLD-DRINK",
+      "store_id": "STORE_007",
+      "store_name": "Koramangala Dark Store 7",
+      "sku_id": "SKU_COLD_DRINK_750ML",
+      "product_name": "FizzCola Zero 750ml",
+      "category": "CAT_BEVERAGES",
+      "urgency": "CRITICAL",
+      "scope_mode": "LOCAL",
+      "diagnosis": {
+        "bottleneck_type": "STOCK_DEFICIT",
+        "description": "Demand surge outpaces available shelf stock prior to the next scheduled truck arrival.",
+        "root_cause": "India vs Pakistan T20 Final starts at 19:30, multiplying hourly demand by 3.0x (from 3.0 to 9.0 units/hr)."
       },
-      "financial_impact": {
-        "execution_cost_inr": 150.0,
-        "revenue_saved_inr": 4500.0,
-        "net_gain_inr": 4350.0
+      "inventory_metrics": {
+        "current_stock": 14,
+        "shelf_slot_id": "SLOT_BEV_04",
+        "slot_capacity": 25,
+        "current_slot_utilization_pct": 56.0,
+        "stockout_projected_time": "2026-10-10T20:13:00Z",
+        "next_truck_arrival_time": "2026-10-10T21:00:00Z",
+        "exposure_minutes": 47,
+        "projected_lost_units": 7,
+        "unit_margin": 13.50,
+        "potential_lost_margin": 94.50
       },
-      "tradeoff_analysis": {
-        "pros": [
-          "Arrives in 28 mins, safely preceding 42-min stockout deadline",
-          "Low execution cost (₹150 courier fee)",
-          "Prevents losing 50 customer orders during cricket peak"
-        ],
-        "cons": [
-          "Reduces Store 3 surplus stock by 35%"
+      "demand_timeline": [
+        { "hour": "17:00", "baseline_demand": 3.0, "uplift_factor": 1.0, "projected_demand": 3.0, "stock_at_start": 14.0, "stock_at_end": 11.0, "is_stockout": false },
+        { "hour": "18:00", "baseline_demand": 3.0, "uplift_factor": 1.0, "projected_demand": 3.0, "stock_at_start": 11.0, "stock_at_end": 8.0, "is_stockout": false },
+        { "hour": "19:00", "baseline_demand": 3.0, "uplift_factor": 2.0, "projected_demand": 6.0, "stock_at_start": 8.0, "stock_at_end": 2.0, "is_stockout": false },
+        { "hour": "20:00", "baseline_demand": 3.0, "uplift_factor": 3.0, "projected_demand": 9.0, "stock_at_start": 2.0, "stock_at_end": 0.0, "is_stockout": true, "stockout_exact_time": "20:13" },
+        { "hour": "21:00", "baseline_demand": 3.0, "uplift_factor": 3.0, "projected_demand": 9.0, "stock_at_start": 0.0, "stock_at_end": 0.0, "is_stockout": true }
+      ],
+      "recommendations": {
+        "primary": {
+          "action_type": "COMBINED_SWAP_AND_TRANSFER",
+          "title": "Clear Slow Snack Slot & Transfer 10 Units from Store 9",
+          "quantity": 10,
+          "donor_store_id": "STORE_009",
+          "donor_store_name": "Indiranagar Dark Store 9",
+          "swap_details": {
+            "slot_id": "SLOT_SNACK_B2",
+            "evicted_sku_id": "SKU_DIET_PUFFS_100G",
+            "evicted_sku_name": "Roasted Diet Puffs (4 sales/week)",
+            "freed_capacity": 15
+          },
+          "logistics": {
+            "vehicle_type": "EV_VAN_EXPRESS",
+            "base_travel_minutes": 18,
+            "loading_minutes": 10,
+            "traffic_factor": 1.25,
+            "estimated_eta_minutes": 32,
+            "expected_arrival_time": "2026-10-10T17:42:00Z",
+            "feasibility_gate_passed": true,
+            "eta_margin_before_stockout_minutes": 151
+          },
+          "financials": {
+            "gross_margin_protected": 94.50,
+            "intervention_cost": 22.00,
+            "donor_risk_penalty": 0.00,
+            "net_margin_protected": 72.50
+          },
+          "donor_health_check": {
+            "donor_current_stock": 60,
+            "donor_projected_demand_until_truck": 12,
+            "donor_post_transfer_surplus": 38,
+            "donor_safety_gate_passed": true
+          }
+        },
+        "fallback": {
+          "action_type": "EARLY_TRUCK",
+          "title": "Pull Scheduled Truck TRUCK_NORTH_101 Forward by 45 Minutes",
+          "truck_id": "TRUCK_NORTH_101",
+          "original_arrival_time": "2026-10-10T21:00:00Z",
+          "proposed_arrival_time": "2026-10-10T20:15:00Z",
+          "additional_units_delivered": 20,
+          "feasibility_gate_passed": true,
+          "financials": {
+            "gross_margin_protected": 94.50,
+            "intervention_cost": 45.00,
+            "net_margin_protected": 49.50
+          },
+          "reason_why_not_primary": "Costs ₹23 more than local transfer and consumes 20 units of scheduled warehouse delivery capacity."
+        }
+      },
+      "agent_explanation": {
+        "summary": "Store 7 runs out of FizzCola 750ml at 20:13, 47 minutes before truck arrival. Clear slow snack slot, then transfer 10 bottles from Store 9. Net margin protected: ₹72.50.",
+        "chain_of_thought": [
+          "Observed: 14 units in stock. Baseline demand = 3/hr. Match uplift starting 19:30 raises demand to 9/hr.",
+          "Diagnosed: Stock runs out at 20:13. Scheduled truck arrives at 21:00. Exposure window = 47 minutes, projecting 7 lost sales (₹94.50 lost margin).",
+          "Evaluated Option 1 (Transfer): Store 9 has 60 bottles, requires only 12 until its own truck. Surplus of 48 bottles allows a safe 10-bottle donation.",
+          "Evaluated Option 2 (Shelf Swap): Shelf slot has only 11 units free capacity. Freeing adjacent slot SLOT_SNACK_B2 creates safe overhead.",
+          "Evaluated Option 3 (Early Truck): Truck TRUCK_NORTH_101 can be advanced by 45 minutes, but net margin is ₹49.50 vs ₹72.50 for transfer.",
+          "Critic Verification: Transit ETA (32 min) easily arrives prior to 20:13 stockout. No donor stockout created.",
+          "Decision: Recommend Option 1 (Swap + Transfer) with Option 3 (Early Truck) as instant fallback."
         ]
       },
-      "is_recommended": true
+      "status": "PENDING"
     },
     {
-      "recommendation_id": "REC_007_TRK_02",
-      "option_type": "EARLIER_TRUCK",
-      "rank": 2,
-      "title": "Expedite Warehouse Truck Delivery",
-      "summary": "Dispatch express warehouse truck TRK_EXPRESS_109 carrying 100 units.",
-      "confidence_score": 0.88,
-      "stockout_prevented": true,
-      "action_parameters": {
-        "source_type": "WAREHOUSE",
-        "source_id": "WH_CENTRAL_01",
-        "truck_id": "TRK_EXPRESS_109",
-        "transfer_quantity_units": 100,
-        "eta_minutes": 35,
-        "estimated_arrival_timestamp": "2026-10-09T18:35:00Z"
+      "alert_id": "ALT-20261010-003-RIDER-SHORTAGE",
+      "store_id": "STORE_003",
+      "store_name": "HSR Layout Dark Store 3",
+      "sku_id": "SKU_INSTANT_NOODLES_70G",
+      "product_name": "QuickBite Masala Noodles 70g",
+      "category": "CAT_SNACKS",
+      "urgency": "HIGH",
+      "scope_mode": "LOCAL",
+      "diagnosis": {
+        "bottleneck_type": "RIDER_SHORTAGE",
+        "description": "Delivery fleet capacity is exhausted; stock is plentiful on the shelf.",
+        "root_cause": "Only 1 rider available between 19:00-21:00 (max 2.5 drops/hr) while order volume is 8.0 orders/hr."
       },
-      "financial_impact": {
-        "execution_cost_inr": 350.0,
-        "revenue_saved_inr": 4500.0,
-        "net_gain_inr": 4150.0
+      "inventory_metrics": {
+        "current_stock": 78,
+        "shelf_slot_id": "SLOT_SNK_11",
+        "slot_capacity": 90,
+        "current_slot_utilization_pct": 86.6,
+        "stockout_projected_time": null,
+        "next_truck_arrival_time": "2026-10-10T22:30:00Z",
+        "exposure_minutes": 0,
+        "projected_lost_units": 0,
+        "delivery_unfulfilled_orders": 11,
+        "unit_margin": 6.00,
+        "potential_lost_margin": 66.00
       },
-      "tradeoff_analysis": {
-        "pros": [
-          "Brings full 100 units replenishment",
-          "Completely covers subsequent demand hours"
-        ],
-        "cons": [
-          "Higher freight cost (₹350 vs ₹150)",
-          "Requires dock unloading crew upon arrival"
+      "recommendations": {
+        "primary": {
+          "action_type": "RIDER_ESCALATION",
+          "title": "Escalate 2 Flex Delivery Riders to Store 3 (Do Not Transfer Stock)",
+          "requested_riders": 2,
+          "hourly_window": "19:00 - 21:00",
+          "cost_per_rider_hour": 120.00,
+          "reasoning": "Do not move inventory! Store 3 has 78 units on shelf. The bottleneck is dispatch bandwidth, not shelf inventory."
+        },
+        "fallback": {
+          "action_type": "THROTTLE_PROMOTIONS",
+          "title": "Cap In-App Promotional Visibility for Store 3 Delivery Radius",
+          "reason_why_not_primary": "Sacrifices GMV. Rider escalation preserves customer fulfillment."
+        }
+      },
+      "agent_explanation": {
+        "summary": "Store 3 has 78 units on shelf but only 1 rider active. Moving stock will not help. Escalate 2 flex riders immediately.",
+        "chain_of_thought": [
+          "Observed: Stock level is healthy (78 units). Next truck is 22:30.",
+          "Diagnosed: Rider count = 1. Dispatch limit = 2.5 drops/hr. Order intake = 8/hr.",
+          "Bottleneck Gate: Classify as RIDER_SHORTAGE. Moving physical stock generates zero incremental sales.",
+          "Decision: Propose rider dispatch surge. Avoid wasteful stock transfer logistics."
         ]
       },
-      "is_recommended": false
+      "status": "PENDING"
     },
     {
-      "recommendation_id": "REC_007_SWP_03",
-      "option_type": "SHELF_SWAP",
-      "rank": 3,
-      "title": "Internal Shelf Space Swap with Slow-Moving SKU",
-      "summary": "Reallocate 25 shelf slots from Diet Herbal Tea to Sparkling Cola 750ml.",
-      "confidence_score": 0.75,
-      "stockout_prevented": false,
-      "action_parameters": {
-        "source_sku_id": "SKU_DIET_HERBAL_TEA_250ML",
-        "target_sku_id": "SKU_COLD_DRINK_750ML",
-        "slots_reallocated": 25,
-        "execution_time_minutes": 10
+      "alert_id": "ALT-20261010-012-SHELF-LIMIT",
+      "store_id": "STORE_012",
+      "store_name": "Whitefield Dark Store 12",
+      "sku_id": "SKU_ICE_CREAM_TUB_500ML",
+      "product_name": "Frosty Treats Belgian Chocolate 500ml",
+      "category": "CAT_FROZEN",
+      "urgency": "HIGH",
+      "scope_mode": "LOCAL",
+      "diagnosis": {
+        "bottleneck_type": "SHELF_LIMIT",
+        "description": "Deep freezer slot is at maximum physical capacity; cannot hold surge buffer.",
+        "root_cause": "Freezer bin capacity is capped at 12 tubs. Projected demand is 28 tubs across the next 3 hours."
       },
-      "financial_impact": {
-        "execution_cost_inr": 0.0,
-        "revenue_saved_inr": 1800.0,
-        "net_gain_inr": 1800.0
+      "inventory_metrics": {
+        "current_stock": 10,
+        "shelf_slot_id": "SLOT_FREEZER_A1",
+        "slot_capacity": 12,
+        "current_slot_utilization_pct": 83.3,
+        "stockout_projected_time": "2026-10-10T19:15:00Z",
+        "next_truck_arrival_time": "2026-10-10T22:00:00Z",
+        "exposure_minutes": 165,
+        "projected_lost_units": 18,
+        "unit_margin": 45.00,
+        "potential_lost_margin": 810.00
       },
-      "tradeoff_analysis": {
-        "pros": [
-          "Zero financial cost",
-          "Immediate execution by store staff (10 mins)"
-        ],
-        "cons": [
-          "Does not add net inventory; backroom exhausts faster",
-          "Only delays stockout by 15 additional minutes"
+      "recommendations": {
+        "primary": {
+          "action_type": "SHELF_SWAP",
+          "title": "Reallocate Frozen Veggies Slot B2 to Ice Cream (+15 Slots)",
+          "evicted_sku_id": "SKU_FROZEN_PEAS_500G",
+          "evicted_sku_name": "Frozen Green Peas 500g",
+          "freed_slot_units": 15,
+          "follow_up_action": "Schedule express replenishment drop of 14 ice cream units once space is cleared."
+        },
+        "fallback": {
+          "action_type": "SEQUENCED_MICRO_DROPS",
+          "title": "Schedule Two Micro-Deliveries of 6 units each via Bike Courier"
+        }
+      },
+      "agent_explanation": {
+        "summary": "Freezer slot limit of 12 tubs caps sales. Clear Frozen Peas slot B2 to double ice cream capacity before peak heat.",
+        "chain_of_thought": [
+          "Observed: Stock is 10 units. Shelf capacity is 12 units. Warehouse has 400 units.",
+          "Diagnosed: Shelf capacity is the binding constraint. Transferring 20 units would fail physical check.",
+          "Decision: Propose shelf swap to expand slot capacity before ordering replenishment."
         ]
       },
-      "is_recommended": false
+      "status": "PENDING"
     },
     {
-      "recommendation_id": "REC_007_WAT_04",
-      "option_type": "WAIT",
-      "rank": 4,
-      "title": "Wait for Standard Scheduled Delivery Truck",
-      "summary": "Do nothing and await standard scheduled truck arrival at 20:00.",
-      "confidence_score": 0.40,
-      "stockout_prevented": false,
-      "action_parameters": {
-        "expected_stockout_duration_minutes": 78,
-        "scheduled_arrival_timestamp": "2026-10-09T20:00:00Z"
+      "alert_id": "ALT-20261010-CITYWIDE-BEVERAGES",
+      "store_id": "CITY_WIDE",
+      "store_name": "Bangalore Central Metro Region",
+      "sku_id": "CAT_BEVERAGES",
+      "product_name": "All Carbonated Soft Drinks & Energy Drinks",
+      "category": "CAT_BEVERAGES",
+      "urgency": "CRITICAL",
+      "scope_mode": "CITY_WIDE_SURGE",
+      "diagnosis": {
+        "bottleneck_type": "STOCK_DEFICIT",
+        "description": "Systemic demand surge detected across 6 of 10 dark stores (60% threshold breached).",
+        "root_cause": "City-wide match screening creates synchronized beverage stockouts across all zones."
       },
-      "financial_impact": {
-        "execution_cost_inr": 0.0,
-        "revenue_saved_inr": 0.0,
-        "net_gain_inr": -4500.0
+      "inventory_metrics": {
+        "affected_stores": ["STORE_001", "STORE_004", "STORE_007", "STORE_008", "STORE_010", "STORE_012"],
+        "total_city_projected_deficit_units": 380,
+        "warehouse_available_units": 520,
+        "net_margin_protected": 4560.00
       },
-      "tradeoff_analysis": {
-        "pros": [
-          "No operational intervention required"
-        ],
-        "cons": [
-          "Results in 78 minutes of complete stockout",
-          "50 lost orders / ₹4,500 direct revenue loss",
-          "Negative impact on customer retention during match"
+      "recommendations": {
+        "primary": {
+          "action_type": "CITY_WIDE_ALLOCATION",
+          "title": "Activate Central Warehouse Rationing & Priority Route Re-sequencing",
+          "allocations": [
+            { "store_id": "STORE_007", "allocated_units": 70, "priority_rank": 1, "truck_run": "EXPRESS_LOOP_1" },
+            { "store_id": "STORE_001", "allocated_units": 65, "priority_rank": 2, "truck_run": "EXPRESS_LOOP_1" },
+            { "store_id": "STORE_004", "allocated_units": 50, "priority_rank": 3, "truck_run": "EXPRESS_LOOP_2" },
+            { "store_id": "STORE_010", "allocated_units": 45, "priority_rank": 4, "truck_run": "EXPRESS_LOOP_2" },
+            { "store_id": "STORE_008", "allocated_units": 40, "priority_rank": 5, "truck_run": "EXPRESS_LOOP_3" },
+            { "store_id": "STORE_012", "allocated_units": 40, "priority_rank": 6, "truck_run": "EXPRESS_LOOP_3" }
+          ],
+          "policies_applied": [
+            "Disabled store-to-store lateral transfers (no donor stores possess safe surplus)",
+            "Enforced 3-bottle basket limit per customer in mobile app",
+            "Auto-raised urgent PO #PO-9912 to bottler for tomorrow morning"
+          ]
+        },
+        "fallback": {
+          "action_type": "PROMOTE_SUBSTITUTES",
+          "title": "Promote 500ml Cans & Juices as Primary Carousels on In-App Home Screen"
+        }
+      },
+      "agent_explanation": {
+        "summary": "60% of dark stores face cold drink stock-outs. Lateral transfers disabled. Scarce warehouse stock rationed by margin density.",
+        "chain_of_thought": [
+          "Scope Detector: 6 stores short in CAT_BEVERAGES. Local store-to-store fixes are mathematically impossible.",
+          "Allocation Engine: Distributed 310 units from Central Warehouse by margin protected with minimum 40-unit floor.",
+          "Strategy Pivot: Switched from reactive transfers to proactive city-wide rationing."
         ]
       },
-      "is_recommended": false
-    }
-  ],
-  "manager_audit_log": [
-    {
-      "action_id": "ACT_20261009_8812",
-      "alert_id": "ALT_20261009_007_01",
-      "recommendation_id": "REC_007_TRF_01",
-      "action_type": "TRANSFER",
-      "status": "APPROVED",
-      "manager_id": "MGR_KORAMANGALA_07",
-      "executed_at": "2026-10-09T18:02:00Z",
-      "notes": "Approved express rider transfer from Store 3 due to incoming match crowd.",
-      "cost_inr": 150.0,
-      "revenue_saved_inr": 4500.0
+      "status": "PENDING"
     }
   ]
 }
