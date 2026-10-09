@@ -74,6 +74,22 @@ All non-`2xx` HTTP responses return a structured error body:
 | `POST` | `/recommendations/{recommendation_id}/reject` | Manager rejects a recommendation with reason |
 | `GET` | `/actions/history` | Audit trail of approved/rejected/executed actions |
 | `POST` | `/simulation/recalculate` | Perform what-if simulation & recalculate recommendations |
+| `POST` | `/auth/login` | Authenticate store manager or city operations manager |
+| `GET` | `/auth/me` | Fetch authenticated manager profile details |
+| `GET` | `/coordination/requests` | List inter-store stock and rider transfer requests |
+| `POST` | `/coordination/requests` | Create a new inter-store stock or rider transfer request |
+| `GET` | `/coordination/requests/{request_id}` | Get detailed inter-store request info and audit trail |
+| `POST` | `/coordination/requests/{request_id}/donor-accept` | Donor store manager accepts inter-store request |
+| `POST` | `/coordination/requests/{request_id}/donor-reject` | Donor store manager declines inter-store request |
+| `POST` | `/coordination/requests/{request_id}/city-approve` | City Operations Manager grants final approval |
+| `POST` | `/coordination/requests/{request_id}/city-reject` | City Operations Manager declines inter-store request |
+| `POST` | `/coordination/requests/{request_id}/cancel` | Requesting store manager or city manager cancels request |
+| `GET` | `/coordination/stock-availability` | Check donor stock availability and safe surplus |
+| `GET` | `/coordination/rider-availability` | Check donor rider fleet availability for time interval |
+| `GET` | `/coordination/cost-config` | Fetch operational cost parameters |
+| `GET` | `/coordination/requests/{request_id}/cost-estimate` | Fetch operational cost breakdown for a request |
+| `GET` | `/notifications` | Poll manager notifications |
+| `PATCH` | `/notifications/{notification_id}/read` | Mark a manager notification as read |
 
 ---
 
@@ -632,3 +648,197 @@ Runs what-if scenario simulations with custom dynamic parameters without modifyi
   ]
 }
 ```
+
+---
+
+## 4. Inter-Store Coordination & Authentication API Specifications
+
+### 4.1 `POST /auth/login`
+Authenticates a Store Manager or City Operations Manager and issues a Bearer JWT access token.
+
+#### Request Body (`application/json`):
+```json
+{
+  "username": "manager_store_007",
+  "password": "PulseStock2026!"
+}
+```
+
+#### Response Body (`200 OK`):
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer",
+  "manager": {
+    "manager_id": "MGR_STORE_007",
+    "username": "manager_store_007",
+    "full_name": "Manager - Store 7 - Koramangala Tech Park",
+    "role": "STORE_MANAGER",
+    "store_id": "STORE_007"
+  }
+}
+```
+
+---
+
+### 4.2 `GET /auth/me`
+Retrieves authenticated manager profile details from Bearer token.
+
+#### Request Headers:
+`Authorization: Bearer <access_token>`
+
+#### Response Body (`200 OK`):
+```json
+{
+  "manager_id": "MGR_STORE_007",
+  "username": "manager_store_007",
+  "full_name": "Manager - Store 7 - Koramangala Tech Park",
+  "role": "STORE_MANAGER",
+  "store_id": "STORE_007"
+}
+```
+
+---
+
+### 4.3 `GET /coordination/requests`
+Lists inter-store stock and rider transfer requests for the manager's store or city wide.
+
+#### Headers:
+`Authorization: Bearer <access_token>`
+
+#### Query Parameters:
+- `store_id` *(optional, string)*: Filter by store (e.g. `STORE_007`).
+- `role` *(optional, string)*: `REQUESTING`, `DONOR`, or `ALL`.
+- `status` *(optional, string)*: Filter by status (`REQUESTED`, `PENDING_CITY_APPROVAL`, `APPROVED`, etc.).
+- `request_type` *(optional, string)*: `STOCK_TRANSFER` or `RIDER_TRANSFER`.
+
+#### Response Body (`200 OK`):
+```json
+[
+  {
+    "request_id": "REQ_20261010_4142C5",
+    "request_type": "STOCK_TRANSFER",
+    "requesting_store_id": "STORE_007",
+    "requesting_store_name": "Store 7 - Koramangala Tech Park",
+    "donor_store_id": "STORE_003",
+    "donor_store_name": "Store 3 - Indiranagar",
+    "sku_id": "SKU_COLD_DRINK_750ML",
+    "sku_name": "Sparkling Cola 750ml",
+    "requested_quantity": 50,
+    "requested_riders_count": null,
+    "start_time": null,
+    "end_time": null,
+    "status": "APPROVED",
+    "created_by_manager_id": "MGR_STORE_007",
+    "reason": "Cold drink stockout prevention",
+    "estimated_cost_inr": 181.0,
+    "estimated_net_benefit_inr": null,
+    "financial_benefit_status": "UNAVAILABLE_AWAITING_ENGINE",
+    "created_at": "2026-10-10T18:00:00Z",
+    "updated_at": "2026-10-10T18:05:00Z",
+    "history": [
+      {
+        "approval_id": "APP_001",
+        "actor_manager_id": "MGR_STORE_007",
+        "actor_role": "STORE_MANAGER",
+        "action": "CREATE",
+        "from_status": "NONE",
+        "to_status": "REQUESTED",
+        "reason": "Cold drink stockout prevention",
+        "timestamp": "2026-10-10T18:00:00Z"
+      }
+    ]
+  }
+]
+```
+
+---
+
+### 4.4 `POST /coordination/requests`
+Creates a new inter-store stock or rider transfer request.
+
+#### Headers:
+`Authorization: Bearer <access_token>`
+
+#### Request Body (`application/json`):
+```json
+{
+  "request_type": "RIDER_TRANSFER",
+  "requesting_store_id": "STORE_007",
+  "donor_store_id": "STORE_003",
+  "requested_riders_count": 3,
+  "start_time": "2026-10-10T18:00:00Z",
+  "end_time": "2026-10-10T20:00:00Z",
+  "reason": "Match crowd surge expected; 6 rider shortage at Store 7."
+}
+```
+
+---
+
+### 4.5 `POST /coordination/requests/{request_id}/donor-accept`
+Donor store manager accepts request and creates temporary stock/rider reservation.
+
+#### Request Body:
+```json
+{
+  "notes": "Store 3 manager agrees to lend 3 riders for 2 hours."
+}
+```
+
+---
+
+### 4.6 `POST /coordination/requests/{request_id}/city-approve`
+City Operations Manager grants final approval and applies simulated movement.
+
+#### Request Body:
+```json
+{
+  "notes": "City Ops authorization granted."
+}
+```
+
+---
+
+### 4.7 `GET /coordination/stock-availability`
+Checks donor stock availability, unreserved inventory, and safe surplus.
+
+#### Query Parameters:
+- `store_id` *(required, string)*: `STORE_003`
+- `sku_id` *(required, string)*: `SKU_COLD_DRINK_750ML`
+- `required_units` *(optional, int)*: `50`
+
+---
+
+### 4.8 `GET /coordination/rider-availability`
+Checks donor rider fleet availability for specified time window.
+
+#### Query Parameters:
+- `store_id` *(required, string)*: `STORE_003`
+- `start_time` *(optional, datetime)*
+- `end_time` *(optional, datetime)*
+- `required_riders` *(optional, int)*: `3`
+
+---
+
+### 4.9 `GET /notifications`
+Polls notifications for the authenticated manager.
+
+#### Headers:
+`Authorization: Bearer <access_token>`
+
+#### Response Body (`200 OK`):
+```json
+[
+  {
+    "notification_id": "NOTIF_001",
+    "manager_id": "MGR_CITY_OPS",
+    "title": "Inter-Store Request Created",
+    "message": "Store 7 requested transfer from Store 3.",
+    "type": "REQUEST_CREATED",
+    "request_id": "REQ_20261010_4142C5",
+    "is_read": false,
+    "created_at": "2026-10-10T18:00:00Z"
+  }
+]
+```
+

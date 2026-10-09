@@ -40,7 +40,8 @@ async def approve_recommendation(
     manager_id = payload.get("manager_id", "UNKNOWN_MANAGER")
     notes = payload.get("manager_notes", "")
     
-    action_id = f"ACT_{datetime.utcnow().strftime('%Y%m%d')}_{rec.recommendation_id[:6]}"
+    import uuid
+    action_id = f"ACT_{datetime.utcnow().strftime('%Y%m%d%H%M%S')}_{uuid.uuid4().hex[:4].upper()}"
     
     action = ActionLog(
         action_id=action_id,
@@ -85,7 +86,8 @@ async def reject_recommendation(
     manager_id = payload.get("manager_id", "UNKNOWN_MANAGER")
     notes = payload.get("notes", "")
 
-    action_id = f"ACT_REJ_{datetime.utcnow().strftime('%Y%m%d')}_{rec.recommendation_id[:6]}"
+    import uuid
+    action_id = f"ACT_REJ_{datetime.utcnow().strftime('%Y%m%d%H%M%S')}_{uuid.uuid4().hex[:4].upper()}"
 
     action = ActionLog(
         action_id=action_id,

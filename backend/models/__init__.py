@@ -10,6 +10,15 @@ try:
     from backend.models.warehouse import WarehouseStock
     from backend.models.truck import TruckSchedule
     from backend.models.rider import RiderAvailability
+    from backend.models.manager import Manager
+    from backend.models.coordination import (
+        InterStoreRequest,
+        RiderTransferReservation,
+        StockTransferReservation,
+        RequestApproval,
+    )
+    from backend.models.notification import ManagerNotification
+    from backend.models.cost_config import OperationalCostConfig
 except ImportError:
     from models.store import Store
     from models.sku import SKU
@@ -22,6 +31,15 @@ except ImportError:
     from models.warehouse import WarehouseStock
     from models.truck import TruckSchedule
     from models.rider import RiderAvailability
+    from models.manager import Manager
+    from models.coordination import (
+        InterStoreRequest,
+        RiderTransferReservation,
+        StockTransferReservation,
+        RequestApproval,
+    )
+    from models.notification import ManagerNotification
+    from models.cost_config import OperationalCostConfig
 
 __all__ = [
     "Store",
@@ -35,4 +53,11 @@ __all__ = [
     "WarehouseStock",
     "TruckSchedule",
     "RiderAvailability",
+    "Manager",
+    "InterStoreRequest",
+    "RiderTransferReservation",
+    "StockTransferReservation",
+    "RequestApproval",
+    "ManagerNotification",
+    "OperationalCostConfig",
 ]
