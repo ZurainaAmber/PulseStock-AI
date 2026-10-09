@@ -1,0 +1,16 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Local Database
+*.db
+*.sqlite3
+pulsestock.db
+
+# Environment variables
+.env
