@@ -16,6 +16,9 @@ try:
         recommendations_router,
         actions_router,
         simulation_router,
+        auth_router,
+        coordination_router,
+        notifications_router,
     )
 except ImportError:
     from config import settings
@@ -31,6 +34,9 @@ except ImportError:
         recommendations_router,
         actions_router,
         simulation_router,
+        auth_router,
+        coordination_router,
+        notifications_router,
     )
 
 @asynccontextmanager
@@ -41,8 +47,8 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="PulseStock AI Backend",
-    version="1.0.0",
-    description="Backend API for Cypher 2026 Challenge 6 - Store 7 Stock-out Prevention & Decision Engine",
+    version="1.1.0",
+    description="Backend API for Cypher 2026 Challenge 6 - Store Stock-out Prevention & Inter-Store Coordination Engine",
     lifespan=lifespan,
     docs_url="/docs",
     redoc_url="/redoc"
@@ -68,6 +74,9 @@ app.include_router(logistics_router)
 app.include_router(recommendations_router)
 app.include_router(actions_router)
 app.include_router(simulation_router)
+app.include_router(auth_router)
+app.include_router(coordination_router)
+app.include_router(notifications_router)
 
 if __name__ == "__main__":
     import uvicorn
