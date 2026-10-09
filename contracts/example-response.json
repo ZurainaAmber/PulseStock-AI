@@ -1,0 +1,274 @@
+{
+  "scenario_metadata": {
+    "challenge": "Cypher 2026 Challenge 6 - PulseStock AI",
+    "scenario_name": "Store 7 Cold-Drink Demand Surge & Stockout Mitigation",
+    "store_id": "STORE_007",
+    "store_name": "Store 7 - Koramangala Tech Park",
+    "target_sku_id": "SKU_COLD_DRINK_750ML",
+    "target_sku_name": "Sparkling Cola 750ml",
+    "generated_at": "2026-10-09T18:00:00Z"
+  },
+  "stockout_alert": {
+    "alert_id": "ALT_20261009_007_01",
+    "store_id": "STORE_007",
+    "sku_id": "SKU_COLD_DRINK_750ML",
+    "severity": "CRITICAL",
+    "current_total_stock_units": 55,
+    "shelf_stock_units": 35,
+    "backroom_stock_units": 20,
+    "shelf_capacity_units": 40,
+    "safety_stock_threshold_units": 25,
+    "reorder_point_units": 50,
+    "projected_hourly_demand_units": 65,
+    "stockout_probability": 0.96,
+    "minutes_until_stockout": 42,
+    "estimated_stockout_timestamp": "2026-10-09T18:42:00Z",
+    "primary_driver": "CRICKET_AND_RAIN_COMBO",
+    "shelf_replenishment_alert": true,
+    "status": "PENDING"
+  },
+  "external_events_context": {
+    "cricket_match": {
+      "is_active": true,
+      "match_id": "MAT_IND_PAK_2026",
+      "title": "India vs Pakistan T20 World Cup Super 8",
+      "stadium_name": "Chinnaswamy Stadium",
+      "distance_km": 1.4,
+      "status": "IN_PROGRESS",
+      "current_match_phase": "Innings Break",
+      "category_uplift_multiplier": 2.5
+    },
+    "weather": {
+      "is_active": true,
+      "condition": "HEAVY_RAIN",
+      "precipitation_mm_per_hr": 22.5,
+      "delivery_speed_reduction_pct": 40.0,
+      "category_uplift_multiplier": 1.35
+    },
+    "festival": {
+      "is_active": true,
+      "festival_name": "Diwali Pre-Shopping Week",
+      "category_uplift_multiplier": 1.25
+    }
+  },
+  "hourly_demand_forecast": [
+    {
+      "timestamp": "2026-10-09T18:00:00Z",
+      "hour_label": "18:00 - 19:00",
+      "baseline_demand_units": 15,
+      "cricket_uplift_units": 32,
+      "rain_uplift_units": 12,
+      "festival_uplift_units": 6,
+      "final_projected_demand_units": 65,
+      "confidence_lower_bound": 58,
+      "confidence_upper_bound": 72
+    },
+    {
+      "timestamp": "2026-10-09T19:00:00Z",
+      "hour_label": "19:00 - 20:00",
+      "baseline_demand_units": 18,
+      "cricket_uplift_units": 45,
+      "rain_uplift_units": 10,
+      "festival_uplift_units": 7,
+      "final_projected_demand_units": 80,
+      "confidence_lower_bound": 70,
+      "confidence_upper_bound": 90
+    },
+    {
+      "timestamp": "2026-10-09T20:00:00Z",
+      "hour_label": "20:00 - 21:00",
+      "baseline_demand_units": 16,
+      "cricket_uplift_units": 30,
+      "rain_uplift_units": 8,
+      "festival_uplift_units": 6,
+      "final_projected_demand_units": 60,
+      "confidence_lower_bound": 52,
+      "confidence_upper_bound": 68
+    },
+    {
+      "timestamp": "2026-10-09T21:00:00Z",
+      "hour_label": "21:00 - 22:00",
+      "baseline_demand_units": 12,
+      "cricket_uplift_units": 10,
+      "rain_uplift_units": 5,
+      "festival_uplift_units": 3,
+      "final_projected_demand_units": 30,
+      "confidence_lower_bound": 25,
+      "confidence_upper_bound": 35
+    }
+  ],
+  "logistics_status": {
+    "warehouse": {
+      "warehouse_id": "WH_CENTRAL_01",
+      "warehouse_name": "Central Distribution Hub West",
+      "available_stock_units": 2400,
+      "expedited_truck_available": true,
+      "expedited_truck_id": "TRK_EXPRESS_109",
+      "expedited_eta_minutes": 35,
+      "expedited_cost_inr": 350.0,
+      "scheduled_truck_id": "TRK_STANDARD_404",
+      "scheduled_truck_eta_minutes": 120
+    },
+    "donor_stores": [
+      {
+        "donor_store_id": "STORE_003",
+        "donor_store_name": "Store 3 - Indiranagar",
+        "distance_km": 3.4,
+        "current_stock_units": 210,
+        "surplus_units": 140,
+        "transfer_eta_minutes": 28,
+        "estimated_transfer_cost_inr": 150.0,
+        "feasibility_score": 0.92
+      }
+    ],
+    "rider_fleet": {
+      "active_riders": 3,
+      "required_riders": 9,
+      "rider_shortage_count": 6,
+      "shortage_severity": "HIGH",
+      "rider_surge_multiplier": 1.35,
+      "transfer_rider_assigned_id": "RIDER_DEV_88"
+    }
+  },
+  "evaluated_recommendations": [
+    {
+      "recommendation_id": "REC_007_TRF_01",
+      "option_type": "TRANSFER",
+      "rank": 1,
+      "title": "Inter-Store Transfer from Store 3 (Indiranagar)",
+      "summary": "Dispatch express rider to transfer 50 units from Store 3 surplus stock.",
+      "confidence_score": 0.94,
+      "stockout_prevented": true,
+      "action_parameters": {
+        "source_type": "STORE",
+        "source_id": "STORE_003",
+        "transfer_quantity_units": 50,
+        "eta_minutes": 28,
+        "estimated_arrival_timestamp": "2026-10-09T18:28:00Z"
+      },
+      "financial_impact": {
+        "execution_cost_inr": 150.0,
+        "revenue_saved_inr": 4500.0,
+        "net_gain_inr": 4350.0
+      },
+      "tradeoff_analysis": {
+        "pros": [
+          "Arrives in 28 mins, safely preceding 42-min stockout deadline",
+          "Low execution cost (₹150 courier fee)",
+          "Prevents losing 50 customer orders during cricket peak"
+        ],
+        "cons": [
+          "Reduces Store 3 surplus stock by 35%"
+        ]
+      },
+      "is_recommended": true
+    },
+    {
+      "recommendation_id": "REC_007_TRK_02",
+      "option_type": "EARLIER_TRUCK",
+      "rank": 2,
+      "title": "Expedite Warehouse Truck Delivery",
+      "summary": "Dispatch express warehouse truck TRK_EXPRESS_109 carrying 100 units.",
+      "confidence_score": 0.88,
+      "stockout_prevented": true,
+      "action_parameters": {
+        "source_type": "WAREHOUSE",
+        "source_id": "WH_CENTRAL_01",
+        "truck_id": "TRK_EXPRESS_109",
+        "transfer_quantity_units": 100,
+        "eta_minutes": 35,
+        "estimated_arrival_timestamp": "2026-10-09T18:35:00Z"
+      },
+      "financial_impact": {
+        "execution_cost_inr": 350.0,
+        "revenue_saved_inr": 4500.0,
+        "net_gain_inr": 4150.0
+      },
+      "tradeoff_analysis": {
+        "pros": [
+          "Brings full 100 units replenishment",
+          "Completely covers subsequent demand hours"
+        ],
+        "cons": [
+          "Higher freight cost (₹350 vs ₹150)",
+          "Requires dock unloading crew upon arrival"
+        ]
+      },
+      "is_recommended": false
+    },
+    {
+      "recommendation_id": "REC_007_SWP_03",
+      "option_type": "SHELF_SWAP",
+      "rank": 3,
+      "title": "Internal Shelf Space Swap with Slow-Moving SKU",
+      "summary": "Reallocate 25 shelf slots from Diet Herbal Tea to Sparkling Cola 750ml.",
+      "confidence_score": 0.75,
+      "stockout_prevented": false,
+      "action_parameters": {
+        "source_sku_id": "SKU_DIET_HERBAL_TEA_250ML",
+        "target_sku_id": "SKU_COLD_DRINK_750ML",
+        "slots_reallocated": 25,
+        "execution_time_minutes": 10
+      },
+      "financial_impact": {
+        "execution_cost_inr": 0.0,
+        "revenue_saved_inr": 1800.0,
+        "net_gain_inr": 1800.0
+      },
+      "tradeoff_analysis": {
+        "pros": [
+          "Zero financial cost",
+          "Immediate execution by store staff (10 mins)"
+        ],
+        "cons": [
+          "Does not add net inventory; backroom exhausts faster",
+          "Only delays stockout by 15 additional minutes"
+        ]
+      },
+      "is_recommended": false
+    },
+    {
+      "recommendation_id": "REC_007_WAT_04",
+      "option_type": "WAIT",
+      "rank": 4,
+      "title": "Wait for Standard Scheduled Delivery Truck",
+      "summary": "Do nothing and await standard scheduled truck arrival at 20:00.",
+      "confidence_score": 0.40,
+      "stockout_prevented": false,
+      "action_parameters": {
+        "expected_stockout_duration_minutes": 78,
+        "scheduled_arrival_timestamp": "2026-10-09T20:00:00Z"
+      },
+      "financial_impact": {
+        "execution_cost_inr": 0.0,
+        "revenue_saved_inr": 0.0,
+        "net_gain_inr": -4500.0
+      },
+      "tradeoff_analysis": {
+        "pros": [
+          "No operational intervention required"
+        ],
+        "cons": [
+          "Results in 78 minutes of complete stockout",
+          "50 lost orders / ₹4,500 direct revenue loss",
+          "Negative impact on customer retention during match"
+        ]
+      },
+      "is_recommended": false
+    }
+  ],
+  "manager_audit_log": [
+    {
+      "action_id": "ACT_20261009_8812",
+      "alert_id": "ALT_20261009_007_01",
+      "recommendation_id": "REC_007_TRF_01",
+      "action_type": "TRANSFER",
+      "status": "APPROVED",
+      "manager_id": "MGR_KORAMANGALA_07",
+      "executed_at": "2026-10-09T18:02:00Z",
+      "notes": "Approved express rider transfer from Store 3 due to incoming match crowd.",
+      "cost_inr": 150.0,
+      "revenue_saved_inr": 4500.0
+    }
+  ]
+}
