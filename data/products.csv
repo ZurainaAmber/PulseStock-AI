@@ -1,0 +1,151 @@
+sku_id,sku_name,category,size,unit_selling_price_inr,margin_pct,unit_cost_price_inr
+SKU_COLD_DRINK_750ML,Sparkling Cola 750ml,Cold Beverages,750ml,90.0,33.33,60.0
+SKU_DIET_HERBAL_TEA_250ML,Diet Herbal Green Tea 250ml,Hot Beverages,250ml,45.0,33.33,30.0
+SKU_ENERGY_DRINK_250ML,Red Bull Energy Drink 250ml,Cold Beverages,250ml,125.0,28.0,90.0
+SKU_KALE_CHIPS_50G,Organic Roasted Kale Chips 50g,Snacks & Chips,50g,180.0,40.0,108.0
+SKU_CHIPS_100G,Classic Salted Potato Chips 100g,Snacks & Chips,100g,40.0,30.0,28.0
+SKU_COLBEV_001,Fresh Mango Juice 1L,Cold Beverages,1L,110.0,30.0,77.0
+SKU_COLBEV_002,Lemon Ice Tea 500ml,Cold Beverages,500ml,60.0,35.0,39.0
+SKU_COLBEV_003,Cold Brew Coffee 240ml,Cold Beverages,240ml,95.0,40.0,57.0
+SKU_COLBEV_004,Orange Aerated Drink 750ml,Cold Beverages,750ml,85.0,32.0,57.8
+SKU_COLBEV_005,Clear Lime Soda 750ml,Cold Beverages,750ml,80.0,33.0,53.6
+SKU_COLBEV_006,Tonic Water 350ml,Cold Beverages,350ml,75.0,35.0,48.75
+SKU_COLBEV_007,Ginger Ale 330ml,Cold Beverages,330ml,70.0,35.0,45.5
+SKU_COLBEV_008,Coconut Water 200ml,Cold Beverages,200ml,50.0,25.0,37.5
+SKU_COLBEV_009,Flavored Lassi 250ml,Cold Beverages,250ml,35.0,25.0,26.25
+SKU_COLBEV_010,Apple Cider Drink 300ml,Cold Beverages,300ml,90.0,35.0,58.5
+SKU_COLBEV_011,Pomegranate Juice 500ml,Cold Beverages,500ml,120.0,30.0,84.0
+SKU_COLBEV_012,Guava Nectar 1L,Cold Beverages,1L,105.0,28.0,75.6
+SKU_COLBEV_013,Electrolyte Drink 500ml,Cold Beverages,500ml,55.0,30.0,38.5
+SKU_COLBEV_014,Sparkling Water 500ml,Cold Beverages,500ml,45.0,35.0,29.25
+SKU_HOTBEV_015,Assam Black Tea 250g,Hot Beverages,250g,140.0,30.0,98.0
+SKU_HOTBEV_016,Instant Coffee Powder 100g,Hot Beverages,100g,210.0,25.0,157.5
+SKU_HOTBEV_017,Green Tea Bags 25s,Hot Beverages,50g,160.0,35.0,104.0
+SKU_HOTBEV_018,Masala Chai Mix 200g,Hot Beverages,200g,120.0,30.0,84.0
+SKU_HOTBEV_019,Filter Coffee Roast 250g,Hot Beverages,250g,190.0,28.0,136.8
+SKU_HOTBEV_020,Earl Grey Tea 100g,Hot Beverages,100g,250.0,40.0,150.0
+SKU_HOTBEV_021,Chamomile Herbal Infusion 20s,Hot Beverages,40g,220.0,38.0,136.4
+SKU_HOTBEV_022,Dark Roast Espresso Beans 250g,Hot Beverages,250g,350.0,35.0,227.5
+SKU_HOTBEV_023,Cardamom Chai Mix 150g,Hot Beverages,150g,115.0,30.0,80.5
+SKU_HOTBEV_024,Ginger Turmeric Tea 20s,Hot Beverages,40g,180.0,35.0,117.0
+SKU_HOTBEV_025,Hot Chocolate Mix 200g,Hot Beverages,200g,160.0,32.0,108.8
+SKU_SNA&CHI_026,Nacho Cheese Corn Chips 150g,Snacks & Chips,150g,75.0,32.0,51.0
+SKU_SNA&CHI_027,Salted Roasted Peanuts 200g,Snacks & Chips,200g,65.0,30.0,45.5
+SKU_SNA&CHI_028,Butter Popcorn 100g,Snacks & Chips,100g,45.0,35.0,29.25
+SKU_SNA&CHI_029,Roasted Almonds 100g,Snacks & Chips,100g,220.0,25.0,165.0
+SKU_SNA&CHI_030,Cashew Nuts Salted 100g,Snacks & Chips,100g,240.0,25.0,180.0
+SKU_SNA&CHI_031,Spicy Masala Makhana 80g,Snacks & Chips,80g,130.0,38.0,80.6
+SKU_SNA&CHI_032,Cheese Balls Snack 100g,Snacks & Chips,100g,50.0,30.0,35.0
+SKU_SNA&CHI_033,Wheat Khakhra Masala 200g,Snacks & Chips,200g,70.0,28.0,50.4
+SKU_SNA&CHI_034,Diet Roasted Chana 200g,Snacks & Chips,200g,60.0,30.0,42.0
+SKU_SNA&CHI_035,Multi-grain Crackers 150g,Snacks & Chips,150g,90.0,35.0,58.5
+SKU_SNA&CHI_036,Banana Chips Salted 150g,Snacks & Chips,150g,80.0,30.0,56.0
+SKU_SNA&CHI_037,Tapioca Crisps 100g,Snacks & Chips,100g,55.0,28.0,39.6
+SKU_SNA&CHI_038,Ragi Crisps Sour Cream 100g,Snacks & Chips,100g,85.0,35.0,55.25
+SKU_INSMEA_039,Pasteurized Toned Milk 1L,Instant Meals,1L,56.0,15.0,47.6
+SKU_INSMEA_040,Fresh Creamy Curd 500g,Instant Meals,500g,45.0,20.0,36.0
+SKU_INSMEA_041,Salted Butter 100g,Instant Meals,100g,60.0,18.0,49.2
+SKU_INSMEA_042,Fresh Paneer Block 200g,Instant Meals,200g,105.0,22.0,81.9
+SKU_INSMEA_043,Processed Cheese Slices 200g,Instant Meals,200g,145.0,25.0,108.75
+SKU_INSMEA_044,Instant Masala Noodles 280g,Instant Meals,280g,55.0,25.0,41.25
+SKU_INSMEA_045,Cup Noodles Chicken 70g,Instant Meals,70g,65.0,30.0,45.5
+SKU_INSMEA_046,Frozen Veg Nuggets 500g,Instant Meals,500g,180.0,32.0,122.4
+SKU_INSMEA_047,Rolled Oats 500g,Instant Meals,500g,115.0,28.0,82.8
+SKU_INSMEA_048,Instant Rava Upma 200g,Instant Meals,200g,75.0,30.0,52.5
+SKU_INSMEA_049,Instant Poha Mix 200g,Instant Meals,200g,65.0,30.0,45.5
+SKU_INSMEA_050,Greek Yogurt Blueberry 100g,Instant Meals,100g,60.0,30.0,42.0
+SKU_INSMEA_051,Mozzarella Shredded Cheese 200g,Instant Meals,200g,195.0,25.0,146.25
+SKU_INSMEA_052,Frozen French Fries 450g,Instant Meals,450g,140.0,30.0,98.0
+SKU_INSMEA_053,Ready to Eat Dal Makhani 300g,Instant Meals,300g,125.0,35.0,81.25
+SKU_INSMEA_054,Instant Tomato Soup 50g,Instant Meals,50g,35.0,30.0,24.5
+SKU_GRO_055,Whole Wheat Atta 5kg,Groceries,5kg,260.0,18.0,213.2
+SKU_GRO_056,Basmati Premium Rice 5kg,Groceries,5kg,550.0,20.0,440.0
+SKU_GRO_057,Toor Dal Unpolished 1kg,Groceries,1kg,165.0,18.0,135.3
+SKU_GRO_058,Refined Sunflower Oil 1L,Groceries,1L,145.0,15.0,123.25
+SKU_GRO_059,Cold Pressed Mustard Oil 1L,Groceries,1L,185.0,20.0,148.0
+SKU_GRO_060,Iodized Salt 1kg,Groceries,1kg,28.0,15.0,23.8
+SKU_GRO_061,Refined Sugar 1kg,Groceries,1kg,48.0,15.0,40.8
+SKU_GRO_062,Organic Turmeric Powder 200g,Groceries,200g,75.0,30.0,52.5
+SKU_GRO_063,Red Chilli Powder 200g,Groceries,200g,90.0,28.0,64.8
+SKU_GRO_064,Coriander Powder 200g,Groceries,200g,70.0,28.0,50.4
+SKU_GRO_065,Garam Masala Powder 100g,Groceries,100g,85.0,32.0,57.8
+SKU_GRO_066,Cumin Seeds Jeera 200g,Groceries,200g,140.0,25.0,105.0
+SKU_GRO_067,Moong Dal Split 1kg,Groceries,1kg,145.0,20.0,116.0
+SKU_GRO_068,Chana Dal 1kg,Groceries,1kg,110.0,18.0,90.2
+SKU_GRO_069,Sona Masoori Rice 5kg,Groceries,5kg,340.0,18.0,278.8
+SKU_GRO_070,Organic Honey 500g,Groceries,500g,280.0,35.0,182.0
+SKU_GRO_071,Pure Cow Ghee 500ml,Groceries,500ml,360.0,20.0,288.0
+SKU_FRU&VEG_072,Robusta Bananas 1kg,Fruits & Vegetables,1kg,50.0,25.0,37.5
+SKU_FRU&VEG_073,Royal Gala Apples 500g,Fruits & Vegetables,500g,140.0,30.0,98.0
+SKU_FRU&VEG_074,Hybrid Tomatoes 1kg,Fruits & Vegetables,1kg,35.0,20.0,28.0
+SKU_FRU&VEG_075,Fresh Onions 1kg,Fruits & Vegetables,1kg,40.0,20.0,32.0
+SKU_FRU&VEG_076,New Crop Potatoes 1kg,Fruits & Vegetables,1kg,35.0,20.0,28.0
+SKU_FRU&VEG_077,Fresh Spinach Palak 250g,Fruits & Vegetables,250g,25.0,25.0,18.75
+SKU_FRU&VEG_078,Orange Carrots 500g,Fruits & Vegetables,500g,40.0,25.0,30.0
+SKU_FRU&VEG_079,Fresh Green Lemons 250g,Fruits & Vegetables,250g,30.0,30.0,21.0
+SKU_FRU&VEG_080,Button Mushrooms 200g,Fruits & Vegetables,200g,60.0,30.0,42.0
+SKU_FRU&VEG_081,Green Cucumber 500g,Fruits & Vegetables,500g,30.0,25.0,22.5
+SKU_FRU&VEG_082,Pomegranate Seedless 500g,Fruits & Vegetables,500g,160.0,28.0,115.2
+SKU_FRU&VEG_083,Green Capsicum 250g,Fruits & Vegetables,250g,35.0,25.0,26.25
+SKU_FRU&VEG_084,Fresh Coriander Bunch 100g,Fruits & Vegetables,100g,15.0,30.0,10.5
+SKU_FRU&VEG_085,Ginger Local 250g,Fruits & Vegetables,250g,45.0,30.0,31.5
+SKU_FRU&VEG_086,Garlic Indigenous 250g,Fruits & Vegetables,250g,75.0,30.0,52.5
+SKU_PERCAR_087,Moisturizing Bath Soap 125g,Personal Care,125g,45.0,25.0,33.75
+SKU_PERCAR_088,Anti-Dandruff Shampoo 180ml,Personal Care,180ml,190.0,30.0,133.0
+SKU_PERCAR_089,Complete Care Toothpaste 150g,Personal Care,150g,115.0,28.0,82.8
+SKU_PERCAR_090,Antibacterial Hand Wash 250ml,Personal Care,250ml,95.0,32.0,64.6
+SKU_PERCAR_091,Laundry Detergent Powder 1kg,Personal Care,1kg,160.0,22.0,124.8
+SKU_PERCAR_092,Dishwash Gel Lemon 250ml,Personal Care,250ml,65.0,25.0,48.75
+SKU_PERCAR_093,Facial Tissue Box 100s,Personal Care,100s,85.0,35.0,55.25
+SKU_PERCAR_094,Disinfectant Surface Cleaner 500ml,Personal Care,500ml,110.0,30.0,77.0
+SKU_PERCAR_095,Power Toilet Cleaner 500ml,Personal Care,500ml,95.0,28.0,68.4
+SKU_PERCAR_096,Garbage Trash Bags Medium 30s,Personal Care,30s,120.0,38.0,74.4
+SKU_PERCAR_097,Soft Toothbrush 2 Pack,Personal Care,2 Pack,70.0,35.0,45.5
+SKU_PERCAR_098,Body Wash Shower Gel 250ml,Personal Care,250ml,210.0,35.0,136.5
+SKU_PERCAR_099,Hand Sanitizer Gel 100ml,Personal Care,100ml,50.0,40.0,30.0
+SKU_PERCAR_100,Mosquito Repellent Liquid 45ml,Personal Care,45ml,85.0,30.0,59.5
+SKU_SWE_101,Milk Chocolate Bar 100g,Sweets,100g,85.0,30.0,59.5
+SKU_SWE_102,Dark Chocolate 70% 80g,Sweets,80g,150.0,35.0,97.5
+SKU_SWE_103,Gulab Jamun Tin 500g,Sweets,500g,165.0,28.0,118.8
+SKU_SWE_104,Flavored Soan Papdi 250g,Sweets,250g,90.0,30.0,63.0
+SKU_SWE_105,Gummy Bear Candies 100g,Sweets,100g,65.0,35.0,42.25
+SKU_SWE_106,Chocolate Wafer Sticks 150g,Sweets,150g,110.0,32.0,74.8
+SKU_SWE_107,Peppermint Candy Pack 50g,Sweets,50g,25.0,40.0,15.0
+SKU_SWE_108,Kaju Katli Sweets 200g,Sweets,200g,280.0,25.0,210.0
+SKU_SWE_109,Rasgulla Tin 500g,Sweets,500g,160.0,28.0,115.2
+SKU_SWE_110,Butterscotch Cookies 150g,Sweets,150g,75.0,30.0,52.5
+SKU_GENERIC_SWE_116,Premium Sweets Item 116,Sweets,200g,234.62,20.45,186.64
+SKU_GENERIC_COLBEV_117,Premium Cold Beverages Item 117,Cold Beverages,200g,118.01,24.02,89.66
+SKU_GENERIC_HOTBEV_118,Premium Hot Beverages Item 118,Hot Beverages,200g,265.67,32.18,180.18
+SKU_GENERIC_SNA&CHI_119,Premium Snacks & Chips Item 119,Snacks & Chips,200g,315.5,21.56,247.48
+SKU_GENERIC_INSMEA_120,Premium Instant Meals Item 120,Instant Meals,200g,165.01,20.54,131.12
+SKU_GENERIC_DAI&BAK_121,Premium Dairy & Bakery Item 121,Dairy & Bakery,200g,99.96,29.1,70.87
+SKU_GENERIC_GRO_122,Premium Groceries Item 122,Groceries,200g,38.49,23.58,29.41
+SKU_GENERIC_FRU&VEG_123,Premium Fruits & Vegetables Item 123,Fruits & Vegetables,200g,237.96,29.81,167.02
+SKU_GENERIC_PERCAR_124,Premium Personal Care Item 124,Personal Care,200g,100.54,30.61,69.76
+SKU_GENERIC_SWE_125,Premium Sweets Item 125,Sweets,200g,289.02,20.12,230.87
+SKU_GENERIC_COLBEV_126,Premium Cold Beverages Item 126,Cold Beverages,200g,287.86,32.57,194.1
+SKU_GENERIC_HOTBEV_127,Premium Hot Beverages Item 127,Hot Beverages,200g,138.88,22.8,107.22
+SKU_GENERIC_SNA&CHI_128,Premium Snacks & Chips Item 128,Snacks & Chips,200g,336.31,26.06,248.67
+SKU_GENERIC_INSMEA_129,Premium Instant Meals Item 129,Instant Meals,200g,59.68,21.74,46.71
+SKU_GENERIC_DAI&BAK_130,Premium Dairy & Bakery Item 130,Dairy & Bakery,200g,301.2,30.87,208.22
+SKU_GENERIC_GRO_131,Premium Groceries Item 131,Groceries,200g,288.28,33.14,192.74
+SKU_GENERIC_FRU&VEG_132,Premium Fruits & Vegetables Item 132,Fruits & Vegetables,200g,201.59,37.52,125.95
+SKU_GENERIC_PERCAR_133,Premium Personal Care Item 133,Personal Care,200g,151.13,29.94,105.88
+SKU_GENERIC_SWE_134,Premium Sweets Item 134,Sweets,200g,295.41,31.13,203.45
+SKU_GENERIC_COLBEV_135,Premium Cold Beverages Item 135,Cold Beverages,200g,305.75,30.39,212.83
+SKU_GENERIC_HOTBEV_136,Premium Hot Beverages Item 136,Hot Beverages,200g,255.46,20.82,202.27
+SKU_GENERIC_SNA&CHI_137,Premium Snacks & Chips Item 137,Snacks & Chips,200g,102.93,25.21,76.98
+SKU_GENERIC_INSMEA_138,Premium Instant Meals Item 138,Instant Meals,200g,55.53,24.19,42.1
+SKU_GENERIC_DAI&BAK_139,Premium Dairy & Bakery Item 139,Dairy & Bakery,200g,62.32,25.0,46.74
+SKU_GENERIC_GRO_140,Premium Groceries Item 140,Groceries,200g,233.42,26.57,171.4
+SKU_GENERIC_FRU&VEG_141,Premium Fruits & Vegetables Item 141,Fruits & Vegetables,200g,148.46,23.77,113.17
+SKU_GENERIC_PERCAR_142,Premium Personal Care Item 142,Personal Care,200g,115.43,36.86,72.88
+SKU_GENERIC_SWE_143,Premium Sweets Item 143,Sweets,200g,237.37,30.96,163.88
+SKU_GENERIC_COLBEV_144,Premium Cold Beverages Item 144,Cold Beverages,200g,84.76,33.12,56.69
+SKU_GENERIC_HOTBEV_145,Premium Hot Beverages Item 145,Hot Beverages,200g,82.29,26.83,60.21
+SKU_GENERIC_SNA&CHI_146,Premium Snacks & Chips Item 146,Snacks & Chips,200g,346.65,31.52,237.39
+SKU_GENERIC_INSMEA_147,Premium Instant Meals Item 147,Instant Meals,200g,208.22,32.32,140.92
+SKU_GENERIC_DAI&BAK_148,Premium Dairy & Bakery Item 148,Dairy & Bakery,200g,299.71,33.97,197.9
+SKU_GENERIC_GRO_149,Premium Groceries Item 149,Groceries,200g,103.3,20.58,82.04
+SKU_GENERIC_FRU&VEG_150,Premium Fruits & Vegetables Item 150,Fruits & Vegetables,200g,130.94,24.82,98.44
